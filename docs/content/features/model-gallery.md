@@ -39,6 +39,24 @@ Both views use the same model selection and store the view, search, filter, and
 selection in the URL. Installing from Explore does not move you away from the
 catalog; the entry updates in place when the operation finishes.
 
+## AdaVaR-3B
+
+[AdaVaR-3B](https://huggingface.co/ZejunLi/AdaVaR-3B) is a Qwen2.5-VL fine-tune for visual reasoning.
+The gallery provides Q4_K_M and Q8_0 GGUF builds for llama.cpp, each with an F16 vision projector.
+
+Install the Q4_K_M build explicitly:
+
+```bash
+local-ai models install adavar-3b-q4 --variant adavar-3b-q4
+```
+
+Use `--variant adavar-3b-q8` to select Q8_0.
+Without `--variant`, LocalAI selects a build using the available memory and backend support.
+Both entries use a 32,768-token context by default and accept images through the chat API.
+
+For adaptive text or grounded reasoning, use the system prompt and question suffix referenced in the publisher's model card.
+The gallery uses the embedded chat template; it does not insert those task prompts automatically.
+
 ## Cyber-Ornith 1.5 9B
 
 Cyber-Ornith 1.5 is a Qwen3.5 fine-tune for security auditing, terminal tasks, and tool use.
